@@ -1,0 +1,365 @@
+@font-face {
+  font-family: Poppins;
+  src: url(../Poppins-Regular.ttf);
+}
+html {
+  scroll-behavior: smooth;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: Poppins;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+::selection {
+  background: #212f3e;
+  color: #fff;
+}
+/* Nav ------------------------------------------------------------------------------------ */
+nav {
+  display: flex;
+  padding: 0 2vw;
+  background: rgba(33, 47, 62, 0.9);
+  color: #fff;
+  position: fixed;
+  top: -100%;
+  width: 100%;
+  transition: all 1s;
+  z-index: 10;
+}
+.navLeft {
+  flex: 1;
+}
+nav h1 {
+  font-size: 3vh;
+  padding: 1vh 0;
+}
+.navRight {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+nav a {
+  padding: 0 2vw;
+  font-size: 2vh;
+  color: #fff;
+  position: relative;
+}
+nav a::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 30%;
+  width: 40%;
+  height: 2px;
+  background: #fff;
+  transition: all 0.4s;
+  transform: scale(0);
+  transform-origin: center;
+}
+nav a:hover:before {
+  transform: scale(1);
+}
+/* Hero --------------------------------------------------------------------------------- */
+.hero {
+  width: 100vw;
+  height: 100vh;
+  background: url(../assets/hero.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 7vh;
+  color: #fff;
+  padding: 2vh 0;
+}
+.hL {
+  font-size: 20px;
+  color: #fff;
+  padding: 1vh 2.4vw;
+  background: dodgerblue;
+  border-radius: 20px;
+  transition: all 0.4s;
+}
+.hL:hover {
+  background: #0275d8;
+}
+.hL:hover .fa-angle-down {
+  transform: translateY(4px);
+}
+/* Sikkim ----------------------------------------------------------------------------- */
+.sik {
+  width: 100vw;
+  height: 100vh;
+  background: #212f3e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.broch {
+  position: relative;
+}
+@keyframes beeg {
+  0% {
+    transform: scale(1) rotate(var(--r));
+  }
+  25% {
+    transform: scale(1.3) rotate(var(--r));
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(var(--r));
+    opacity: 0;
+  }
+}
+.r {
+  position: absolute;
+  top: -7vw;
+  left: -5vw;
+  width: 10vw;
+  height: 30vw;
+  border: #fff 1px solid;
+  border-radius: 50px;
+  transition: all 1s 0.4s;
+}
+.r[data-scroll="in"] {
+  transform: rotate(var(--r));
+  animation: beeg 2s 1.4s forwards;
+}
+.sik h1 {
+  color: #fff;
+  font-size: 10vh;
+  letter-spacing: 6px;
+  opacity: 0;
+  transition: all 1s 3.4s;
+}
+.sik h1[data-scroll="in"] {
+  opacity: 1;
+}
+.sik a {
+  color: #fff;
+  font-size: 2vh;
+  opacity: 0;
+  transition: all 1s 4.4s;
+  background: dodgerblue;
+  padding: 1vh 2vw;
+  border-radius: 20px;
+}
+.sik a[data-scroll="in"] {
+  opacity: 1;
+}
+/* Info --------------------------------------------------------- */
+main {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+.backBlock {
+  width: 25vw;
+  height: 100vh;
+  background: linear-gradient(315deg, dodgerblue, rgb(30, 203, 255));
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: inline-block;
+}
+.main {
+  width: 90vw;
+  height: 70vh;
+  padding-left: 3vw;
+  display: flex;
+}
+.main img {
+  width: 38vw;
+  height: 38vw;
+  transform: scale(0);
+  border-radius: 100%;
+  pointer-events: none;
+  transition: all 1s 1s;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-left: 4vw;
+  padding-top: 10vh;
+}
+main h1 {
+  font-size: 3vw;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 1s 2s;
+}
+main p {
+  padding: 2vw;
+  font-size: 1.6vw;
+  transform: translateY(100px);
+  opacity: 0;
+  text-align: justify;
+  transition: all 1s 3s;
+}
+.main img[data-scroll="in"] {
+  transform: scale(1);
+}
+main a {
+  padding: 16px 23px;
+  background: dodgerblue;
+  border-radius: 50%;
+  color: #fff;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 1s 4s;
+}
+main p[data-scroll="in"],
+main h1[data-scroll="in"],
+main a[data-scroll="in"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Methods ------------------------------------------------------------------------------------ */
+.met {
+  width: 100vw;
+  height: auto;
+  background: url(../assets/loginBack.svg);
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+.met h1 {
+  font-size: 4vw;
+  color: #fbfbfb;
+  text-align: center;
+  padding-top: 7vh;
+  padding-bottom: 4vh;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 1s 1s;
+}
+.met h1[data-scroll="in"] {
+  transform: translateY(0);
+  opacity: 1;
+}
+.wholeCards {
+  padding: 0 8vw;
+  padding-bottom: 4vh;
+}
+.cards {
+  display: flex;
+}
+@keyframes card {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.card {
+  background: #f4f4f4;
+  flex: 1;
+  border-radius: 12px;
+  height: 35vh;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(70, 70, 70, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1vw;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 1s;
+  cursor: pointer;
+}
+.card[data-scroll="in"] {
+  animation: card 1s var(--q) forwards;
+}
+.card img {
+  padding: 2vh 0;
+}
+.card h2 {
+  font-size: 1.6vw;
+  padding: 1.2vh 0;
+  text-align: center;
+}
+.card p {
+  padding: 1.2vh 0;
+  text-align: center;
+  font-size: 1.3vh;
+}
+.expand {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  margin: 0;
+  z-index: 9;
+  background: #f4f4f4;
+  display: flex;
+  padding: 10vw;
+  cursor: pointer;
+}
+.expand * {
+  transition: all 0.6s;
+}
+.extra {
+  display: none;
+}
+.expand img {
+  width: 30%;
+}
+.expand .rest {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.expand .rest h2 {
+  font-size: 3vw;
+}
+.expand .extra {
+  display: block;
+}
+.expand p {
+  padding: 4vh 8vw;
+  font-size: 2vh;
+  text-align: justify;
+  padding-bottom: 0;
+}
+.mett {
+  position: relative;
+  height: 100vh;
+}
+/* Footer ---------------------------------------------------------------------------------------- */
+footer {
+  background: #1f2122;
+}
+footer p {
+  text-align: center;
+  color: #fbfbfb;
+  padding: 4vh 0;
+}
