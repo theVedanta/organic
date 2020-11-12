@@ -82,6 +82,7 @@ nav a:hover:before {
   font-size: 7vh;
   color: #fff;
   padding: 2vh 0;
+  text-align: center;
 }
 .hL {
   font-size: 20px;
@@ -260,11 +261,12 @@ main a[data-scroll="in"] {
   opacity: 1;
 }
 .wholeCards {
-  padding: 0 8vw;
+  padding: 0 5vw;
   padding-bottom: 4vh;
 }
 .cards {
   display: flex;
+  flex-wrap: wrap;
 }
 @keyframes card {
   0% {
@@ -278,10 +280,10 @@ main a[data-scroll="in"] {
 }
 .card {
   background: #f4f4f4;
-  flex: 1;
+  width: 30%;
   border-radius: 12px;
   height: 35vh;
-  margin: 20px;
+  margin: 1.2vw;
   box-shadow: 0 0 10px rgba(70, 70, 70, 0.4);
   display: flex;
   flex-direction: column;
@@ -362,4 +364,141 @@ footer p {
   text-align: center;
   color: #fbfbfb;
   padding: 4vh 0;
+}
+/* Medias -------------------------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .hero h1 {
+    font-size: 6vh;
+  }
+  .hero a {
+    font-size: 22px;
+    padding: 1.4vh 5vw;
+  }
+  .sik a {
+    padding: 1.6vh 5vw;
+  }
+  .backBlock {
+    width: 100vw;
+    height: 25vh;
+  }
+  .main {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .main img {
+    padding: 0;
+  }
+  .content {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  .main h1 {
+    font-size: 6vw;
+    padding: 4vh 0;
+  }
+  .main p {
+    font-size: 2.4vh;
+    padding: 0 10vw;
+    padding-bottom: 3vh;
+  }
+  .met h1 {
+    font-size: 5vw;
+  }
+  .wholeCards {
+    padding: 0 8vw;
+    padding-bottom: 6vh;
+  }
+  .card {
+    width: 45%;
+    margin: 2%;
+  }
+  .card img {
+    width: 26%;
+  }
+  .card h2 {
+    padding: 1vh 0;
+    font-size: 2.6vw;
+  }
+  .card p {
+    padding: 1vh 3vw;
+    font-size: 1.2vh;
+  }
+  .expand {
+    flex-direction: column;
+    align-items: center;
+  }
+  .expand img {
+    width: 40%;
+  }
+  .expand .rest {
+    width: 100%;
+  }
+  .expand .rest h2 {
+    font-size: 5vh;
+    padding: 4vh 0;
+  }
+  .expand p {
+    font-size: 1.6vh;
+    padding-top: 0;
+  }
+}
+@media (max-width: 500px) {
+  nav h1 {
+    text-align: center;
+  }
+  .navRight {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 6vh;
+  }
+  .hero a {
+    font-size: 2vh;
+    padding: 1vh 10vw;
+  }
+  .sik h1 {
+    font-size: 6vh;
+  }
+  .sik a {
+    padding: 1vh 6vw;
+  }
+  .main img {
+    width: 60vw;
+    height: 60vw;
+  }
+  .main h1 {
+    font-size: 3vh;
+  }
+  .main p {
+    font-size: 1.6vh;
+  }
+  .met h1 {
+    font-size: 4vh;
+  }
+  .card {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 3vh;
+  }
+  .card h2 {
+    font-size: 2.6vh;
+  }
+  .card p {
+    font-size: 1.4vh;
+  }
+  footer p {
+    font-size: 1.4vh;
+  }
+  .expand .rest h2 {
+    font-size: 2.6vh;
+  }
+  .expand p {
+    padding: 0 2vw;
+  }
 }
