@@ -31,6 +31,12 @@ footer {
 p {
   text-align: justify;
 }
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+}
 /* Nav ------------------------------------------------------------------------------------ */
 nav {
   display: flex;
@@ -45,6 +51,7 @@ nav {
 }
 .navLeft {
   flex: 1;
+  display: flex;
 }
 nav h1 {
   font-size: 3vh;
@@ -77,6 +84,89 @@ nav a::before {
 nav a:hover:before {
   transform: scale(1);
 }
+.wholeHam {
+  padding: 1vh 2vw;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  display: none;
+}
+.ham {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  position: relative;
+  border-radius: 50px;
+  transition: all 0.5s;
+}
+.ham::before,
+.ham::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  background: #fff;
+  border-radius: inherit;
+  transition: all 0.4s;
+}
+.ham::before {
+  bottom: 8px;
+}
+.ham::after {
+  bottom: -8px;
+}
+.hamActive {
+  background: transparent;
+}
+.hamActive::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.hamActive::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+/* Side --------------------------------------------------------------------------------- */
+.side {
+  position: fixed;
+  top: -100%;
+  width: 100vw;
+  height: 100vh;
+  background: #212f3e;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;
+  pointer-events: none;
+}
+.side a {
+  color: #fff;
+  font-size: 4vh;
+  padding: 6vh 7vw;
+  padding-bottom: 1vh;
+  position: relative;
+}
+.side a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(75%);
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s;
+}
+.side a:hover:after {
+  width: 40%;
+}
+.sideActive {
+  top: 0;
+  pointer-events: all;
+}
 /* Hero ------------------------------------------------------------------------ */
 .hero {
   width: 100vw;
@@ -98,6 +188,7 @@ nav a:hover:before {
 }
 .hero h1 {
   font-size: 5vw;
+  text-align: center;
 }
 .hero h5 {
   font-size: 2vh;
@@ -157,7 +248,8 @@ nav a:hover:before {
   align-items: flex-start;
 }
 .right img {
-  width: 100%;
+  width: 80%;
+  border-radius: 18px;
 }
 /* Content 2 ------------------------------------------------------------------------------------------ */
 .content2 {
@@ -167,8 +259,11 @@ nav a:hover:before {
   display: flex;
 }
 .content2 p {
-  font-size: 2vw;
+  font-size: 1.89vw;
   padding: 2vh 3vw;
+}
+.content2 img {
+  border-radius: 8px;
 }
 /* Content 3 ------------------------------------------------------------------------------------------ */
 .content3 {
@@ -203,9 +298,11 @@ nav a:hover:before {
   padding: 1vh 2vw;
 }
 .bbbr img {
-  width: 50%;
+  width: 48%;
   height: 30%;
   border-radius: 10px;
+  object-fit: cover;
+  margin: 1%;
 }
 .bbbl h2 {
   text-align: center;
@@ -233,6 +330,19 @@ footer p {
 }
 /* Medias -------------------------------------------------------------------------------------------------- */
 @media (max-width: 1100px) {
+  nav {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  .navLeft {
+    justify-content: space-between;
+  }
+  .wholeHam {
+    display: flex;
+  }
+  .navRight {
+    display: none;
+  }
   .content1 h1 {
     font-size: 5vw;
     padding-top: 7vh;
@@ -289,6 +399,12 @@ footer p {
   .hero {
     background: #212f3e;
     color: #fff;
+  }
+  .hero h1 {
+    font-size: 8.6vw;
+  }
+  .hero a {
+    padding: 1vh 8vw;
   }
   .content1 p {
     font-size: 1.7vh;

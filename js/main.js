@@ -20,3 +20,12 @@ for (let card of cards) {
         met.classList.toggle("mett");
     });
 };
+
+let clickHam = document.querySelector(".wholeHam");
+let ham = document.querySelector(".ham");
+let side = document.querySelector(".side");
+
+clickHam.addEventListener("click", () => {
+    ham.classList.toggle("hamActive");
+    side.classList.toggle("sideActive")
+});

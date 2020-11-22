@@ -34,10 +34,12 @@ nav {
 }
 .navLeft {
   flex: 1;
+  display: flex;
 }
 nav h1 {
   font-size: 3vh;
   padding: 1vh 0;
+  display: inline-block;
 }
 .navRight {
   flex: 1;
@@ -65,6 +67,89 @@ nav a::before {
 }
 nav a:hover:before {
   transform: scale(1);
+}
+.wholeHam {
+  padding: 1vh 2vw;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  display: none;
+}
+.ham {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  position: relative;
+  border-radius: 50px;
+  transition: all 0.5s;
+}
+.ham::before,
+.ham::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  background: #fff;
+  border-radius: inherit;
+  transition: all 0.4s;
+}
+.ham::before {
+  bottom: 8px;
+}
+.ham::after {
+  bottom: -8px;
+}
+.hamActive {
+  background: transparent;
+}
+.hamActive::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.hamActive::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+/* Side --------------------------------------------------------------------------------- */
+.side {
+  position: fixed;
+  top: -100%;
+  width: 100vw;
+  height: 100vh;
+  background: #212f3e;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;
+  pointer-events: none;
+}
+.side a {
+  color: #fff;
+  font-size: 4vh;
+  padding: 6vh 7vw;
+  padding-bottom: 1vh;
+  position: relative;
+}
+.side a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(75%);
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s;
+}
+.side a:hover:after {
+  width: 40%;
+}
+.sideActive {
+  top: 0;
+  pointer-events: all;
 }
 /* Hero --------------------------------------------------------------------------------- */
 .hero {
@@ -318,7 +403,7 @@ main a[data-scroll="in"] {
   left: 0;
   border-radius: 0;
   margin: 0;
-  z-index: 9;
+  z-index: 8;
   background: #f4f4f4;
   display: flex;
   padding: 10vw;
@@ -449,8 +534,15 @@ footer p {
   }
 }
 @media (max-width: 500px) {
-  nav h1 {
-    text-align: center;
+  nav {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  .navLeft {
+    justify-content: space-between;
+  }
+  .wholeHam {
+    display: flex;
   }
   .navRight {
     display: none;
